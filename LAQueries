@@ -1,0 +1,2 @@
+#Monitor Automation Account Runbook Job status.
+AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed") | summarize AggregatedValue = count() by RunbookName_s
